@@ -1,8 +1,44 @@
+/*///////////////Обнуление///////////////////*/
+ul, 
+ol, 
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
 @font-face{
 	font-family: "TTLakes";
 	src: url('./TTLakes/TTLakes-Medium.woff') format('woff'),
 			url('./TTLakes/TTLakesCondensed-Bold.woff') format('woff');
 }
+
+html, body {
+	height: 100%;
+	line-height: 1;
+	font-size: 16px;
+	color: #1B1C21;
+	font-weight: 500;
+	font-family: 'TTLakes', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+/*///////////////Медиа///////////////////*/
+
 @media (min-width: 320px) and (max-width: 768px) {
     body {
     	height: 597px;
@@ -15,15 +51,17 @@
     }
     
     .navigation {
+    	display: flex;
+    	justify-content: space-around;
     	width: 320px;
     }
     
-    .title.navigation__repair, 
-    .title.navigation__chatstatus, 
-    .divider_1, 
-    .navigation__telephon, 
-    .navigation__sms, 
-    .navigation__person, 
+    
+    .title.menu,
+    .divider_1,
+		.navigation__telephon,
+		.navigation__sms,
+		.navigation__person,
     .services.brand, 
     .services.adress, 
     .services.reviews {
@@ -39,38 +77,35 @@
     	top: -18px;
     	width: 288px;
    		height: 116px;
+   		line-height: 18px;
    	}
 
    	.nav_left {
-		display: inline-flex;
-		justify-content: flex-start;
-		justify-content: space-around;
+		display: flex;
+		justify-content: space-evenly;
 		align-items: center;
-		width: 186px;
-		height: 88px;
+		width: 120;
 	}
 
 	.nav_right {
-   		display: inline-flex;
-		justify-content: flex-end;
-		justify-content: space-around;
+   	display: flex;
+		justify-content: space-evenly;
 		align-items: center;
-		width: 132px;
-		height: 88px;
+		width: 150px;
 	}
 
-	.repair {
+	.services {
+		padding: 24px;
+
+	}
+
+	.services:first-child {
 	border: 2px solid #B8FFEC;
 	background-color: #FFFFFF;
 	border-radius: 6px;
 	}
 
-	.title.menu {
-		margin: 0;
-		padding: 0;
-		margin-bottom: 24px;
-		padding-bottom: 24px;
-    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1120px) {
@@ -83,8 +118,7 @@
     	height: 416px;
     }
 
-    .title.navigation__repair, 
-    .title.navigation__chatstatus,
+    .title.menu .title__navigation,
     .title__navigation,
     .services.brand, 
     .services.adress, 
@@ -103,8 +137,8 @@
     }
 
 	.nav_right {
-   		display: inline-flex;
-		justify-content: space-around;
+   	display: inline-flex;
+		justify-content: space-evenly;
 		align-items: center;
 		width: 298px;
 		height: 88px;
@@ -112,7 +146,7 @@
 	
 	.nav_left {
 		display: inline-flex;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		align-items: center;
 		width: 230px;
 		height: 88px;
@@ -123,7 +157,8 @@
 		position: relative;
 		left: 24px;
     	width: 319px;
-    	height: 160px;
+    	height: 165px;
+    	line-height: 20px;
     }
 
 	.photo {
@@ -139,7 +174,7 @@
 		left: 8px;
 	}
 
-	.repair {
+	.services:first-child {
 	border: 2px solid #B8FFEC;
 	background-color: #FFFFFF;
 	border-radius: 6px;
@@ -173,19 +208,19 @@
 		position: relative;
 		top: -20px;
 		width: 490px;
-		height:  160px;
+		height:  165px;
 		margin-left: 10px;
 		padding-top: 19px;
 		margin-bottom: 14px;
+		line-height: 20px;
 	}
 
 	.title.menu {
 		display: inline-flex;
 		margin: 0;
-		margin-top: 22px;
 		padding: 0;
 		paddin-top: 40px;
-		padding-bottom: 50px;
+		padding-bottom: 70px;
 		font-size: 16px;
 		align-items: baseline;
 		height: 24px;
@@ -203,20 +238,17 @@
 	}
 
 	.title.navigation__repair {
-		position: relative;
-		top: -8px;
-		background: #FF3E79 url('./image/repair.svg') no-repeat 11px 11px;
-		width: 20px;
-		height: 20px;
+		background: #FF3E79 no-repeat 50% 50%;
+		width: 40px;
+		height: 40px;
 		border-radius: 50%;
 		text-decoration: none;
 		color: #1B1C21;
 		font-size: 16px;
-		margin-right: 14px;
-		margin-left: 8px;
 	} 
 
-	.title.navigation__chatstatus {
+	.title.navigation__chatstatus,
+	.title.navigation__repair {
 		position: relative;
 		top: -8px;
 		background: #FF3E79 url('./image/chatstatus.svg') no-repeat 12px 10px;
@@ -226,8 +258,6 @@
 		text-decoration: none;
 		color: #1B1C21;
 		font-size: 16px;
-		margin-left: 8px;
-		margin-right: 32px;
 	} 
 
 	.title__navigation {
@@ -302,58 +332,45 @@ h1::before {
 	margin-right: 10px;
 }
 
-.navigation {
+.navigation, .title__navigation {
 	display: flex;
+	justify-content: space-evenly;
 	height: 88px;
-	border-bottom: 1px solid #D9FFF5;;
+	border-bottom: 1px solid #D9FFF5;
 }
 
-.navigation__burger{
-	background: #FF3E79 url("./image/icon.svg") no-repeat 11px 13px;
+.navigation__burger,
+.navigation__telephon,
+.navigation__sms,
+.navigation__person,
+.navigation__repair,
+.navigation__chatstatus,
+.title.navigation__chatstatus,
+.title.navigation__repair {
+	background-color: #FF3E79;
+	border-radius: 50%;
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
 }
 
-.navigation__logo {
-	background: url("./image/Group.svg") no-repeat;
-	width: 98px;
-	height: 52px;
+.navigation__burger a img,
+.navigation__telephon a img,
+.navigation__sms a img,
+.navigation__person a img,
+.navigation__repair a img,
+.navigation__chatstatus a img,
+.title.navigation__chatstatus a img,
+.title.navigation__repair a img {
+	position: relative;
+	top: 10px;
+	left: 10px;
+	background-repeat: no-repeat;
 }
 
-.navigation__repair {
-	background: #FF3E79 url('./image/repair.svg') no-repeat 11px 11px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
-.navigation__chatstatus {
-	background: #FF3E79 url('./image/chatstatus.svg') no-repeat 12px 10px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
-.navigation__telephon {
-	background: #FF3E79 url('./image/tel.svg') no-repeat 12px 10px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
-.navigation__sms {
-	background: #FF3E79 url('./image/chat.svg') no-repeat;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
-.navigation__person {
-	background: #FF3E79 url('./image/profile.svg') no-repeat;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
+.navigation__logo a img {
+	position: relative;
+	top: 0;
+	left: 10px;
 }
 
 .divider, .divider_1 {
@@ -362,7 +379,6 @@ h1::before {
 }
 
 .text {
-	color: #1B1C21;
 	position: relative;
 	right: -16px;
 	font-size: 14px;
